@@ -22,7 +22,17 @@
         <div class="navbar">
           <div class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="left sliding no-hairlines"><b>&nbsp;Ertebat Sedaye Bartar</b></div>
+            <div class="left sliding no-hairlines"><b>&nbsp;
+              <?php
+                require 'conn.inc.php';
+                $title_qiery = mysqli_query($mysqli, "SELECT * From `h59894_mobile`.`structure` ");
+                while($row_title = mysqli_fetch_assoc($title_qiery)){
+                  $title = $row_title['title'];
+                }
+                echo $title;
+                // echo "failed";
+              ?>
+            </b></div>
             <div class="right">
               <!-- Right link contains only icon - additional "icon-only" class-->
               <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
